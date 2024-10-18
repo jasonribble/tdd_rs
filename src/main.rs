@@ -14,3 +14,15 @@ async fn main() {
 async fn handler() -> &'static str {
     "ok"
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_handler() {
+        let response = handler().await;
+        assert_eq!("ok", response);
+    }
+}
