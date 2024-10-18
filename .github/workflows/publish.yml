@@ -1,0 +1,14 @@
+name: Publish Artifact
+
+on:
+  workflow_run:
+    workflows: ["Commit Phase"]
+    types:
+      - completed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo "All jobs in the Commit Phase workflow have passed successfully!"
