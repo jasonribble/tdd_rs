@@ -36,10 +36,10 @@ jobs:
     - uses: dtolnay/rust-toolchain@stable
 
     - name: Build API
-      run: cargo build --bin your_api_binary_name
+      run: cargo build --bin tdd_rs
 
     - name: Start API
-      run: cargo run --bin your_api_binary_name > api.log 2>&1 &
+      run: cargo run --bin tdd_rs > api.log 2>&1 &
 
     - name: Wait for API to be ready
       run: |
